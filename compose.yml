@@ -1,14 +1,27 @@
 version: "3.9"
 
 services:
+
   devopsdb:
     image: akshithjanagam/automation:db
     ports:
       - "3306:3306"
+    deploy:
+      replicas: 4
+    networks:
+      - mynetwork
 
   application:
     image: akshithjanagam/automation:app
     ports:
       - "1111:8080"
+    deploy:
+      replicas: 4
+    networks:
+      - mynetwork
     depends_on:
       - devopsdb
+
+networks:
+  mynetwork:
+    driver: overlay
