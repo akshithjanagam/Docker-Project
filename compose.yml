@@ -5,14 +5,10 @@ services:
     image: akshithjanagam/automation:db
     ports:
       - "3306:3306"
-    deploy:
-      replicas: 4
 
   application:
     image: akshithjanagam/automation:app
     ports:
       - "1111:8080"
-    deploy:
-      replicas: 3
     depends_on:
       - devopsdb
