@@ -4,10 +4,8 @@ services:
 
   devopsdb:
     image: akshithjanagam/automation:db
-    ports:
-      - "3306:3306"
     deploy:
-      replicas: 6
+      replicas: 1
     networks:
       - Akshnetwork
 
