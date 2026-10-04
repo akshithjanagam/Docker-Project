@@ -7,21 +7,21 @@ services:
     ports:
       - "3306:3306"
     deploy:
-      replicas: 2
+      replicas: 6
     networks:
-      - mynetwork
+      - Akshnetwork
 
   application:
     image: akshithjanagam/automation:app
     ports:
       - "1111:8080"
     deploy:
-      replicas: 4
+      replicas: 6
     networks:
       - mynetwork
     depends_on:
       - devopsdb
 
 networks:
-  mynetwork:
+  Akshnetwork:
     driver: overlay
