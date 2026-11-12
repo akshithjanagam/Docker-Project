@@ -7,5 +7,10 @@ pipeline {
         checkoutcode()
       }
     }
+    stage("build") {
+      steps {
+        mavenbuild()
+      }
+    }
   }
 }
