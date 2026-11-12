@@ -1,19 +1,24 @@
+
 @Library('my-shared-library') _
+
 pipeline {
-  agent any 
-  tools {
-    maven 'mymaven'
-  }
-  stages {
-    stage("code") {
-      steps {
-        checkoutcode()
-      }
+    agent any
+
+    tools {
+        maven 'mymaven'
     }
-    stage("build") {
-      steps {
-        mavenbuild()
-      }
+
+    stages {
+        stage('Code Checkout') {
+            steps {
+                checkoutcode()
+            }
+        }
+
+        stage('Build') {
+            steps {
+                mavenbuild()
+            }
+        }
     }
-  }
 }
